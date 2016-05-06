@@ -1,0 +1,19 @@
+.dataTables_filter label {
+  float: right;
+  margin-bottom: 10px; }
+
+.dataTables_filter label input {
+  margin-left: 5px;
+  border-radius: 5px; }
+
+.dataTables_length select {
+  margin: 0px 4px; }
+
+.dataTables_paginate .pagination {
+  margin: 0px;
+  float: right; }
+
+.dataTables_wrapper label {
+  font-weight: normal; }
+
+/*# sourceMappingURL=mystyles.css.map */

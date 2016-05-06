@@ -14,3 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::resource('inquiries', 'InquiryController');
+});
+
+//Route::resource('inquiries', ["uses" => 'InquiryController@index', 'middleware' => 'auth']); //Not working
