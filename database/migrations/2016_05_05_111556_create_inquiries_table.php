@@ -18,6 +18,7 @@ class CreateInquiriesTable extends Migration
             $table->string('email');
             $table->string('phone');
             $table->boolean('ref');
+            $table->integer('owner');
             $table->timestamps();
         });
     }

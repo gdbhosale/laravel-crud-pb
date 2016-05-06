@@ -35,8 +35,8 @@
         <ul class="sidebar-menu">
             <li class="header">Modules</li>
             <!-- Optionally, you can add icons to the links -->
-            <li class="active"><a href="{{ url('home') }}"><i class='fa fa-link'></i> <span>Home</span></a></li>
-            <li><a href="{{ url('inquiries') }}"><i class='fa fa-link'></i> <span>Inquiries</span></a></li>
+            <li class="{{ Request::is('home') ? "active" : "" }}"><a href="{{ url('home') }}"><i class='fa fa-link'></i> <span>Home</span></a></li>
+            <li class="{{ Request::is('inquiries') ? "active" : "" }}"><a href="{{ url('inquiries') }}"><i class='fa fa-link'></i> <span>Inquiries</span></a></li>
             <!--
             <li class="treeview">
                 <a href="#"><i class='fa fa-link'></i> <span>Multilevel</span> <i class="fa fa-angle-left pull-right"></i></a>

@@ -8,12 +8,14 @@
 @section("main-content")
 <div class="box">
 	<div class="box-header">
-		<h3 class="box-title">Data Table With Full Features</h3>
+		<h3 class="box-title">Inquiry Listing</h3>
+		<button class="btn btn-success btn-sm pull-right" data-toggle="modal" data-target="#inquiryAddModal">Add New Inquiry</button>
 	</div>
 	<div class="box-body">
 		<table id="example1" class="table table-bordered">
 		<thead>
 		<tr class="success">
+			<th>ID</th>
 			<th>Name</th>
 			<th>Email</th>
 			<th>Phone</th>
@@ -24,11 +26,19 @@
 		<tbody>
 			@foreach( $allInquiries as $inquiry )
 				<tr>
-					<td><b>{!! Html::linkRoute('inquiries.show', $inquiry->name, array($inquiry->id)) !!}</b></td>
+					<td>{!! $inquiry->id !!}</td>
+					<td><b>{!! $inquiry->name !!}</b></td>
 					<td>{{ $inquiry->email }}</td>
 					<td>{{ $inquiry->phone }}</td>
-					<td>{{ $inquiry->ref }}</td>
-					<td>{!! Html::linkRoute('inquiries.edit', 'Edit', array($inquiry->id), ['class'=>'btn btn-success btn-xs', 'style'=>'display:inline']) !!}
+					<td>
+						<input name="ref_{!! $inquiry->id !!}" type="checkbox" @if($inquiry->ref == 1) checked="checked" @endif>
+						
+						<div class="Switch Round @if($inquiry->ref == 1) On @else Off @endif">
+							<div class="Toggle"></div>
+						</div>
+						   
+					</td>
+					<td>{!! Html::linkRoute('inquiries.edit', 'Edit', array($inquiry->id), ['class'=>'btn btn-warning btn-xs', 'style'=>'display:inline;padding:2px 5px 3px 5px;']) !!}
 						{!! Form::open(['route' => ['inquiries.destroy', $inquiry->id], 'method' => 'delete', 'style'=>'display:inline']) !!}
 							<input class="btn btn-danger btn-xs" type="submit" value="Delete" />
 						{!! Form::close() !!}</td>
@@ -38,6 +48,49 @@
 		</table>
 	</div>
 </div>
+
+
+<div class="modal fade" id="inquiryAddModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel">Add Inquiry</h4>
+			</div>
+			{!! Form::open(['action' => 'InquiryController@store']) !!}
+			<div class="modal-body">
+				<div class="box-body">
+					<div class="form-group">
+						{!! Form::label('name', 'Name :') !!}
+                    	{!! Form::text('name', null, ['class'=>'form-control', 'placeholder'=>'Name']) !!}
+					</div>
+					<div class="form-group">
+						{!! Form::label('email', 'Email :') !!}
+                    	{!! Form::email('email', null, ['class'=>'form-control', 'placeholder'=>'Email']) !!}
+					</div>
+					<div class="form-group">
+						{!! Form::label('phone', 'Phone :') !!}
+                    	{!! Form::tel('phone', null, ['class'=>'form-control', 'placeholder'=>'Phone']) !!}
+					</div>
+					<div class="form-group">
+						{!! Form::label('ref_add', 'Is Reference :') !!}
+						
+						<input id="ref_add" name="ref_add" type="checkbox" checked="checked" value="1">
+						<div class="Switch Round On" style="vertical-align:top;margin-left:10px;">
+							<div class="Toggle"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				{!! Form::submit( 'Submit', ['class'=>'btn btn-success']) !!}
+			</div>
+			{!! Form::close() !!}
+		</div>
+	</div>
+</div>
+
 @endsection
 
 @push('scripts')
