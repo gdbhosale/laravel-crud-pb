@@ -10,6 +10,9 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 
+use App\User;
+use App\Inquiry;
+
 /**
  * Class HomeController
  * @package App\Http\Controllers
@@ -33,6 +36,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $userCount = User::count();
+        $inquiriesCount = Inquiry::count();
+        $myInquiriesCount = Inquiry::count();
+        return view('home', [
+            "userCount" => $userCount,
+            "inquiriesCount" => $inquiriesCount,
+            "myInquiriesCount" => $myInquiriesCount
+        ]);
     }
 }
