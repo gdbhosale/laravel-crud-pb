@@ -19,4 +19,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('inquiries', 'InquiryController');
 });
 
+Route::post( '/inquiries/update_ajax', array(
+    'as' => 'inquiries.update_ajax',
+    'uses' => 'InquiryController@update_ajax'
+) );
+
 //Route::resource('inquiries', ["uses" => 'InquiryController@index', 'middleware' => 'auth']); //Not working

@@ -79,7 +79,8 @@ class InquiryController extends Controller {
      */
     public function edit($id)
     {
-        //
+        $inquiry = Inquiry::find($id);
+        return view('inquiries.edit')->with('inquiry',$inquiry);
     }
 
     /**
@@ -89,9 +90,45 @@ class InquiryController extends Controller {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PublishInquiryRequest $requestData, $id)
     {
-        //
+        $inquiry = Inquiry::find($id);
+
+        //Update Query
+        $inquiry->name= $requestData['name'];
+        $inquiry->email= $requestData['email'];
+        $inquiry->phone= $requestData['phone'];
+        if(isset($requestData['ref_add']) && $requestData['ref_add'] != 0) {
+            $inquiry->ref= 1;
+        } else {
+            $inquiry->ref= 0;
+        }
+        $inquiry->save();
+
+        //Redirecting to index() method of BookController class
+        return redirect()->route('inquiries.index');
+    }
+    
+    public function update_ajax(Request $requestData)
+    {
+        if (Auth::check()) {
+            if(isset($requestData['type']) && $requestData['type'] == "UPDATE_REF") {
+                $inqid = $requestData['inqid'];
+                $state = $requestData['state'];
+                if($state == "true") {
+                    $state = 1;
+                } else {
+                    $state = 0;
+                }
+                $inquiry = Inquiry::find($inqid);;
+                $inquiry->ref = $state;
+                $inquiry->save();
+            } else {
+                echo "Unauthorized 2";
+            }
+        } else {
+            echo "Unauthorized 1";
+        }
     }
 
     /**
@@ -102,6 +139,9 @@ class InquiryController extends Controller {
      */
     public function destroy($id)
     {
-        //
+        Inquiry::find($id)->delete();
+
+        //Redirecting to index() method
+        return redirect()->route('inquiries.index');
     }
 }

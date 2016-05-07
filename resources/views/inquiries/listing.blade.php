@@ -31,12 +31,13 @@
 					<td>{{ $inquiry->email }}</td>
 					<td>{{ $inquiry->phone }}</td>
 					<td>
+						{!! Form::open(['route' => ['inquiries.update_ajax', $inquiry->id], 'method' => 'update_ajax', 'style'=>'display:inline']) !!}
 						<input name="ref_{!! $inquiry->id !!}" type="checkbox" @if($inquiry->ref == 1) checked="checked" @endif>
 						
-						<div class="Switch Round @if($inquiry->ref == 1) On @else Off @endif">
+						<div class="Switch Ajax Round @if($inquiry->ref == 1) On @else Off @endif" inqid="{!! $inquiry->id !!}">
 							<div class="Toggle"></div>
 						</div>
-						   
+						{!! Form::close() !!}
 					</td>
 					<td>{!! Html::linkRoute('inquiries.edit', 'Edit', array($inquiry->id), ['class'=>'btn btn-warning btn-xs', 'style'=>'display:inline;padding:2px 5px 3px 5px;']) !!}
 						{!! Form::open(['route' => ['inquiries.destroy', $inquiry->id], 'method' => 'delete', 'style'=>'display:inline']) !!}
@@ -109,6 +110,34 @@ $(function () {
 		"autoWidth": false
 	});
 	*/
+	
+	$('.Switch.Ajax').click(function() {
+		var state = "false";
+		if ($(this).hasClass('On')){
+			state = "false";
+		} else {
+			state = "true";
+		}
+		var _token = $(this).parent().find('input[name=_token]').val();
+		$.ajax({
+			type: "POST",
+			url : "{{ url('/inquiries/update_ajax') }}",
+			xhrFields: {
+				withCredentials: true
+			},
+			data : {
+				_token: _token,
+				type: "UPDATE_REF",
+				inqid: $(this).attr("inqid"),
+				state: state,
+			},
+			success : function(data){
+				console.log(data);
+			}
+		});
+		
+	});
+	
 });
 </script>
 @endpush
