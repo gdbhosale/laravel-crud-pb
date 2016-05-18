@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Requests\PublishInquiryRequest;
+use App\User;
 use App\Inquiry;
 use Auth;
 
@@ -22,9 +23,25 @@ class InquiryController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        //$allInquiries = Inquiry::all();
-        $allInquiries = Inquiry::where('owner', Auth::id())->get();
-        return View('inquiries.listing', compact('allInquiries'));
+        
+        // get user id index array
+        $users = array();
+        $arr = User::all();
+        foreach ($arr as $user) {
+            $users[$user->id] = $user;
+        }
+        
+        $allInquiries = array();
+        
+        if(Auth::user()->user_type == "SUPER_ADMIN") {
+            $allInquiries = Inquiry::all();
+        } else {
+            $allInquiries = Inquiry::where('owner', Auth::id())->get();
+        }
+        
+        //print_r($allInquiries);
+        
+        return View('inquiries.listing', compact('allInquiries', 'users'));
     }
 
     /**
@@ -123,11 +140,19 @@ class InquiryController extends Controller {
                 $inquiry = Inquiry::find($inqid);;
                 $inquiry->ref = $state;
                 $inquiry->save();
+                return response()->json(['success' => true]);
+            } else if(isset($requestData['type']) && $requestData['type'] == "UPDATE_COMMENT") {
+                $inqid = $requestData['inqid'];
+                $comment = $requestData['comment'];
+                $inquiry = Inquiry::find($inqid);;
+                $inquiry->comment = $comment;
+                $inquiry->save();
+                return response()->json(['success' => true]);
             } else {
-                echo "Unauthorized 2";
+                return response()->json(['success' => false, 'error' => 'Unknown Request']);
             }
         } else {
-            echo "Unauthorized 1";
+            return response()->json(['success' => false, 'error' => 'UnAuthentic Request']);
         }
     }
 

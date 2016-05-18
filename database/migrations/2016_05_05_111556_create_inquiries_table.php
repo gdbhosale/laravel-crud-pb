@@ -19,8 +19,15 @@ class CreateInquiriesTable extends Migration
             $table->string('phone');
             $table->boolean('ref');
             $table->integer('owner');
+            $table->string('comment');
             $table->timestamps();
         });
+        
+        /*
+        Schema::table('inquiries', function (Blueprint $table) {
+            $table->string('comment')->after('email');
+        });
+        */
     }
 
     /**

@@ -6,6 +6,10 @@
 @section("sub_section", "Listing")
 
 @section("main-content")
+
+<?php
+use App\User;
+?>
 <div class="box">
 	<div class="box-header">
 		<h3 class="box-title">Inquiry Listing</h3>
@@ -20,6 +24,10 @@
 			<th>Email</th>
 			<th>Phone</th>
 			<th>is Ref</th>
+			@if(Auth::user()->user_type == "SUPER_ADMIN")
+				<th>Owner</th>
+			@endif
+			<th>Comment</th>
 			<th>Action</th>
 		</tr>
 		</thead>
@@ -39,6 +47,12 @@
 						</div>
 						{!! Form::close() !!}
 					</td>
+					@if(Auth::user()->user_type == "SUPER_ADMIN")
+						<td>{{ $users[$inquiry->owner]->name }}</td>
+						<td><button class="commentInq btn @if(trim($inquiry->comment) != "") btn-warning @else btn-success @endif btn-xs pull-right" inq_id="{{ $inquiry->id }}" inq_name="{{ $inquiry->name }}" inq_comm="{{ $inquiry->comment }}">@if(trim($inquiry->comment) != "") Edit Comment @else Comment @endif</button></td>
+					@else
+						<td>@if(trim($inquiry->comment) != "")<button class="commentInq btn btn-success btn-xs pull-right" inq_id="{{ $inquiry->id }}" inq_name="{{ $inquiry->name }}" inq_comm="{{ $inquiry->comment }}"> Comment</button>@endif</td>
+					@endif
 					<td>{!! Html::linkRoute('inquiries.edit', 'Edit', array($inquiry->id), ['class'=>'btn btn-warning btn-xs', 'style'=>'display:inline;padding:2px 5px 3px 5px;']) !!}
 						{!! Form::open(['route' => ['inquiries.destroy', $inquiry->id], 'method' => 'delete', 'style'=>'display:inline']) !!}
 							<input class="btn btn-danger btn-xs" type="submit" value="Delete" />
@@ -92,6 +106,59 @@
 	</div>
 </div>
 
+@if(Auth::user()->user_type == "SUPER_ADMIN")
+<div class="modal fade" id="inquiryCommentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel">Comment Inquiry:</h4>
+			</div>
+			{!! Form::open(['route' => ['inquiries.update_ajax', $inquiry->id], 'method' => 'update_ajax', 'id' => 'commentInqForm']) !!}
+			<input type="hidden" name="inq_id" id="inq_id" value="0">
+			<div class="modal-body">
+				<div class="box-body">
+					<div class="form-group">
+						{!! Form::label('comment', 'Comment :') !!}
+                    	{!! Form::text('comment', null, ['class'=>'form-control', 'placeholder'=>'Comment']) !!}
+						<p class="error" style="display:none;color:#FF877E;margin-top:5px;"></p>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				{!! Form::submit( 'Submit', ['class'=>'btn btn-success']) !!}
+			</div>
+			{!! Form::close() !!}
+		</div>
+	</div>
+</div>
+@endif
+
+@if(Auth::user()->user_type == "USER")
+<div class="modal fade" id="inquiryCommentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel">Comment Inquiry:</h4>
+			</div>
+			<div class="modal-body">
+				<div class="box-body">
+					<div class="form-group">
+						{!! Form::label('comment', 'Comment :') !!}
+                    	{!! Form::text('comment', null, ['class'=>'form-control', 'placeholder'=>'Comment']) !!}
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+</div>
+@endif
+
 @endsection
 
 @push('scripts')
@@ -110,6 +177,63 @@ $(function () {
 		"autoWidth": false
 	});
 	*/
+	@if(Auth::user()->user_type == "SUPER_ADMIN")
+	
+	$(".commentInq").on("click", function(){
+		$('#inquiryCommentModal .modal-title').html("Comment Inquiry: " + $(this).attr("inq_name"));
+		$('#inquiryCommentModal #inq_id').val($(this).attr("inq_id"));
+		$('#inquiryCommentModal input[name="comment"]').val($(this).attr("inq_comm"));
+		$('#inquiryCommentModal').modal('show');
+		$('#inquiryCommentModal .error').html("");
+		$('#inquiryCommentModal .error').css("display", "none");
+	});
+	
+	$("#commentInqForm").submit(function(e){
+		e.preventDefault();
+		console.log("commentInqForm");
+		
+		var _token = $('#inquiryCommentModal input[name=_token]').val();
+		
+		$.ajax({
+			type: "POST",
+			url : "{{ url('/inquiries/update_ajax') }}",
+			xhrFields: {
+				withCredentials: true
+			},
+			data : {
+				_token: _token,
+				type: "UPDATE_COMMENT",
+				inqid: $('#inquiryCommentModal #inq_id').val(),
+				comment: $('#inquiryCommentModal input[name="comment"]').val(),
+			},
+			success : function(data){
+				console.log(data);
+				if(data.success == true) {
+					$('#inquiryCommentModal').modal('hide');
+					$('#inquiryCommentModal input[name="comment"]').val("");
+					$('#inquiryCommentModal .error').html("");
+					$('#inquiryCommentModal .error').css("display", "none");
+					window.location.reload();
+				} else {
+					console.log("Fail");
+					$('#inquiryCommentModal').modal({'show':true});
+					$('#inquiryCommentModal .error').html("Error: " + data.error);
+					$('#inquiryCommentModal .error').css("display", "block");
+				}
+				
+			}
+		});
+		$('#inquiryCommentModal').modal({'show':false});
+	});
+	@else
+	
+	$(".commentInq").on("click", function(){
+		$('#inquiryCommentModal .modal-title').html("Comment Inquiry: " + $(this).attr("inq_name"));
+		$('#inquiryCommentModal input[name="comment"]').val($(this).attr("inq_comm"));
+		$('#inquiryCommentModal').modal('show');
+	});
+	
+	@endif
 	
 	$('.Switch.Ajax').click(function() {
 		var state = "false";
@@ -118,7 +242,7 @@ $(function () {
 		} else {
 			state = "true";
 		}
-		var _token = $(this).parent().find('input[name=_token]').val();
+		var _token = $(this).parent().find('#inquiryAddModal input[name=_token]').val();
 		$.ajax({
 			type: "POST",
 			url : "{{ url('/inquiries/update_ajax') }}",

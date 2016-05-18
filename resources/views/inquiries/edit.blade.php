@@ -38,8 +38,9 @@
 				</div>
 				<br>
 				<div class="form-group">
-					{!! Form::submit( 'Update', ['class'=>'btn btn-success']) !!} <button class="btn btn-default pull-right"><a href="{{ url('/inquiries') }}">Go Back</a></button>            </div>
-
+					{!! Form::submit( 'Update', ['class'=>'btn btn-success']) !!} <button class="btn btn-default pull-right"><a href="{{ url('/inquiries') }}">Go Back</a></button>
+				</div>
+				
 				{!! Form::close() !!}
 				@if($errors->any())
 					<ul class="alert alert-danger">
