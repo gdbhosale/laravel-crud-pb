@@ -114,7 +114,7 @@ use App\User;
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 				<h4 class="modal-title" id="myModalLabel">Comment Inquiry:</h4>
 			</div>
-			{!! Form::open(['route' => ['inquiries.update_ajax', $inquiry->id], 'method' => 'update_ajax', 'id' => 'commentInqForm']) !!}
+			{!! Form::open(['route' => ['inquiries.update_ajax', 0], 'method' => 'update_ajax', 'id' => 'commentInqForm']) !!}
 			<input type="hidden" name="inq_id" id="inq_id" value="0">
 			<div class="modal-body">
 				<div class="box-body">
