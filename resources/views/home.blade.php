@@ -37,7 +37,8 @@
 			<!-- /.info-box -->
 		</div>
 		<!-- /.col -->
-
+		@endif
+		
 		<!-- fix for small devices only -->
 		<div class="clearfix visible-sm-block"></div>
 
@@ -70,7 +71,7 @@
 			<!-- /.info-box -->
 		</div>
 		<!-- /.col -->
-		@endif
+		
 	</div>
 	<!-- /.row -->
 </section>

@@ -40,7 +40,7 @@ class HomeController extends Controller
         if(Auth::user()->user_type == "SUPER_ADMIN") {
             $userCount = User::count();
             $inquiriesCount = Inquiry::count();
-            $myInquiriesCount = Inquiry::count();
+            $myInquiriesCount = Inquiry::where('owner', Auth::id())->count();
             return view('home', [
                 "auth" => true,
                 "userCount" => $userCount,
@@ -48,8 +48,10 @@ class HomeController extends Controller
                 "myInquiriesCount" => $myInquiriesCount
             ]);
         } else {
+            $myInquiriesCount = Inquiry::where('owner', Auth::id())->count();
             return view('home', [
-                "auth" => false
+                "auth" => false,
+                "myInquiriesCount" => $myInquiriesCount
             ]);
         }
     }
