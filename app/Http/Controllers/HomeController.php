@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 
 use App\User;
 use App\Inquiry;
+use Auth;
 
 /**
  * Class HomeController
@@ -36,13 +37,20 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $userCount = User::count();
-        $inquiriesCount = Inquiry::count();
-        $myInquiriesCount = Inquiry::count();
-        return view('home', [
-            "userCount" => $userCount,
-            "inquiriesCount" => $inquiriesCount,
-            "myInquiriesCount" => $myInquiriesCount
-        ]);
+        if(Auth::user()->user_type == "SUPER_ADMIN") {
+            $userCount = User::count();
+            $inquiriesCount = Inquiry::count();
+            $myInquiriesCount = Inquiry::count();
+            return view('home', [
+                "auth" => true,
+                "userCount" => $userCount,
+                "inquiriesCount" => $inquiriesCount,
+                "myInquiriesCount" => $myInquiriesCount
+            ]);
+        } else {
+            return view('home', [
+                "auth" => false
+            ]);
+        }
     }
 }
