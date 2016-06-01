@@ -9,7 +9,7 @@
     <body class="hold-transition register-page">
     <div class="register-box">
         <div class="register-logo">
-            <a href="{{ url('/home') }}"><b>Admin</b>LTE</a>
+            <a href="{{ url('/') }}"><b>Propbuying</b> Prime</a>
         </div>
 
         @if (count($errors) > 0)
@@ -28,11 +28,15 @@
             <form action="{{ url('/register') }}" method="post">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="form-group has-feedback">
-                    <input type="text" class="form-control" placeholder="Full name" name="name" value="{{ old('name') }}"/>
+						<input type="text" class="form-control" placeholder="Full name" name="name" value="{{ $_GET['name'] or old('name') }}"/>
                     <span class="glyphicon glyphicon-user form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
-                    <input type="email" class="form-control" placeholder="Email" name="email" value="{{ old('email') }}"/>
+                    <input type="phone" class="form-control" placeholder="Phone" name="phone" value="{{ $_GET['phone'] or old('phone') }}"/>
+                    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                </div>
+				<div class="form-group has-feedback">
+                    <input type="email" class="form-control" placeholder="Email" name="email" value="{{ $_GET['email'] or old('email') }}"/>
                     <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
@@ -47,7 +51,7 @@
                     <div class="col-xs-8">
                         <div class="checkbox icheck">
                             <label>
-                                <input type="checkbox"> I agree to the <a href="#">terms</a>
+                                <input type="checkbox" required> I agree to the <a href="#">terms</a>
                             </label>
                         </div>
                     </div><!-- /.col -->
@@ -56,8 +60,6 @@
                     </div><!-- /.col -->
                 </div>
             </form>
-
-            @include('auth.partials.social_login')
 
             <a href="{{ url('/login') }}" class="text-center">I already have a membership</a>
         </div><!-- /.form-box -->

@@ -1,306 +1,663 @@
 <!DOCTYPE html>
-<!--
-Landing page based on Pratt: http://blacktie.co/demo/pratt/
--->
-<html lang="en">
+<html lang="en-US">
+
+<!-- Mirrored from responsiveexpert.com/themes/spandow/html/index-4.html by HTTrack Website Copier/3.x [XR&CO'2013], Sun, 24 Apr 2016 14:57:15 GMT -->
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Adminlte-laravel - Laravel 5 package that switchs default Laravel scaffolding/boilerplate to AdminLTE template with Bootstrap 3.0 and Pratt Landing page">
-    <meta name="author" content="Sergi Tur Badenas - acacha.org">
-
-    <meta property="og:title" content="Adminlte-laravel" />
-    <meta property="og:type" content="website" />
-    <meta property="og:description" content="Adminlte-laravel - Laravel 5 package that switchs default Laravel scaffolding/boilerplate to AdminLTE template with Bootstrap 3.0 and Pratt Landing page" />
-    <meta property="og:url" content="http://demo.adminlte.acacha.org/" />
-    <meta property="og:image" content="http://demo.adminlte.acacha.org/img/AcachaAdminLTE.png" />
-    <meta property="og:image" content="http://demo.adminlte.acacha.org/img/AcachaAdminLTE600x600.png" />
-    <meta property="og:image" content="http://demo.adminlte.acacha.org/img/AcachaAdminLTE600x314.png" />
-    <meta property="og:sitename" content="demo.adminlte.acacha.org" />
-    <meta property="og:url" content="http://demo.adminlte.acacha.org" />
-
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@acachawiki" />
-    <meta name="twitter:creator" content="@acacha1" />
-
-    <title>Acacha AdminLTE Laravel package template Landing page - Using Pratt</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="{{ asset('/css/bootstrap.css') }}" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="{{ asset('/css/main.css') }}" rel="stylesheet">
-
-    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
-
-    <script src="{{ asset('/plugins/jQuery/jQuery-2.1.4.min.js') }}"></script>
-    <script src="{{ asset('/js/smoothscroll.js') }}"></script>
-
-
+    <title>PropBuying | Prime - Easy Referal Program</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE" />
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    
+    <link rel="shortcut icon" href="img/favicon.png">
+    
+    <!-- Core CSS -->
+    <link type="text/css" rel="stylesheet" href="assets_hp/css/bootstrap.css"><!-- Bootstrap -->
+    <link type="text/css" rel="stylesheet" href="assets_hp/font-awesome/css/font-awesome.min.css"><!-- font-awesome -->
+    <link type="text/css" rel="stylesheet" href="assets_hp/css/style.css"><!-- Light Theme Core CSS -->
+    
+    <!-- Google Fonts here -->
+    <link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Ubuntu:400,700,300,500' rel='stylesheet' type='text/css'>    
+    
 </head>
 
-<body data-spy="scroll" data-offset="0" data-target="#navigation">
+<body>
 
-<!-- Fixed navbar -->
-<div id="navigation" class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#"><b>adminlte-laravel</b></a>
+    <!-- Preloader Area Start 
+    ====================================================== -->
+   
+   <!-- =================================================
+    Preloader Area End -->
+    
+    <!--Start Header Area  
+    ====================================================== -->
+    <header class="header-area header-blue-clr ">
+        <div class="container clearfix">
+            
+            <!-- Start: Logo Sec-->
+            <div class="logo-cnt">
+                <a href="#"><img src="assets_hp/img/logo.png" alt=""></a>
+            </div>
+            <!-- End: Logo Sec-->
+            
+            <!-- Start: Toggle sec-->
+            <a href="#" class="togg-navi">
+                <span class="togg-text-menu">
+                    <i class="fa fa-bars"></i>
+                </span>
+            </a>
+            <!-- End: Toggle sec-->
+            
+            
+            <!-- Start: Main Navigation -->
+            <nav class="main-nav">
+                <ul class="menu-main">
+                    <li><a href="#welcome"><i class="fa fa-home"></i> Home</a></li>
+                    <li><a href="#about-area"><i class="fa fa-gift" aria-hidden="true"></i> Easy Referal Program</a></li>
+                    
+                    <li><a href="#team"><i class="fa fa-user"></i> Prime Team </a></li>
+                    <li><a href="#contact"><i class="fa fa-envelope"></i>  Get in Touch</a></li>
+                </ul>
+                
+            <!-- Start: Main Navigation -->
+            <div class="trial-button">
+                <a href="{{ url('/login') }}">Submit Lead</a>
+            </div>  
+            <!-- End: Main Navigation -->
+
+            </nav>
+            <!-- End: Main Navigation -->
+                             
         </div>
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="#home" class="smoothScroll">Home</a></li>
-                <li><a href="#desc" class="smoothScroll">Description</a></li>
-                <li><a href="#showcase" class="smoothScroll">Showcase</a></li>
-                <li><a href="#contact" class="smoothScroll">Contact</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                @if (Auth::guest())
-                    <li><a href="{{ url('/login') }}">Login</a></li>
-                    <li><a href="{{ url('/register') }}">Register</a></li>
-                @else
-                    <li><a href="{{ url('/home') }}">{{ Auth::user()->name }}</a></li>
-                @endif
-            </ul>
-        </div><!--/.nav-collapse -->
-    </div>
-</div>
+    </header>
+    <!--End Header Area 
+    ====================================================== -->
 
-
-<section id="home" name="home"></section>
-<div id="headerwrap">
-    <div class="container">
-        <div class="row centered">
-            <div class="col-lg-12">
-                <h1>Acacha <b><a href="https://github.com/acacha/adminlte-laravel">adminlte-laravel</a></b></h1>
-                <h3>A <a href="https://laravel.com/">Laravel</a> 5 package that switchs default Laravel
-                    scaffolding/boilerplate to <a href="https://almsaeedstudio.com/preview">AdminLTE</a> template with
-                    <a href="http://getbootstrap.com/">Bootstrap</a> 3.0 and <a href="http://blacktie.co/demo/pratt/">Pratt</a> Landing page</h3>
-                <h3><a href="{{ url('/register') }}" class="btn btn-lg btn-success">Get Started!</a></h3>
-            </div>
-            <div class="col-lg-2">
-                <h5>Amazing admin template</h5>
-                <p>Based on adminlte bootstrap theme</p>
-                <img class="hidden-xs hidden-sm hidden-md" src="{{ asset('/img/arrow1.png') }}">
-            </div>
-            <div class="col-lg-8">
-                <img class="img-responsive" src="{{ asset('/img/app-bg.png') }}" alt="">
-            </div>
-            <div class="col-lg-2">
-                <br>
-                <img class="hidden-xs hidden-sm hidden-md" src="{{ asset('/img/arrow2.png') }}">
-                <h5>Awesome packaged...</h5>
-                <p>... by <a href="http://acacha.org/sergitur">Sergi Tur Badenas</a> at <a href="http://acacha.org">acacha.org</a> ready to use with Laravel!</p>
-            </div>
-        </div>
-    </div> <!--/ .container -->
-</div><!--/ #headerwrap -->
-
-
-<section id="desc" name="desc"></section>
-<!-- INTRO WRAP -->
-<div id="intro">
-    <div class="container">
-        <div class="row centered">
-            <h1>Designed To Excel</h1>
-            <br>
-            <br>
-            <div class="col-lg-4">
-                <img src="{{ asset('/img/intro01.png') }}" alt="">
-                <h3>Community</h3>
-                <p>See <a href="https://github.com/acacha/adminlte-laravel">Github project</a>, post <a href="https://github.com/acacha/adminlte-laravel/issues">issues</a> and <a href="https://github.com/acacha/adminlte-laravel/pulls">Pull requests</a></p>
-            </div>
-            <div class="col-lg-4">
-                <img src="{{ asset('/img/intro02.png') }}" alt="">
-                <h3>Schedule</h3>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-            </div>
-            <div class="col-lg-4">
-                <img src="{{ asset('/img/intro03.png') }}" alt="">
-                <h3>Monitoring</h3>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-            </div>
-        </div>
-        <br>
-        <hr>
-    </div> <!--/ .container -->
-</div><!--/ #introwrap -->
-
-<!-- FEATURES WRAP -->
-<div id="features">
-    <div class="container">
-        <div class="row">
-            <h1 class="centered">What's New?</h1>
-            <br>
-            <br>
-            <div class="col-lg-6 centered">
-                <img class="centered" src="{{ asset('/img/mobile.png') }}" alt="">
-            </div>
-
-            <div class="col-lg-6">
-                <h3>Some Features</h3>
-                <br>
-                <!-- ACCORDION -->
-                <div class="accordion ac" id="accordion2">
-                    <div class="accordion-group">
-                        <div class="accordion-heading">
-                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
-                                First Class Design
-                            </a>
-                        </div><!-- /accordion-heading -->
-                        <div id="collapseOne" class="accordion-body collapse in">
-                            <div class="accordion-inner">
-                                <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                            </div><!-- /accordion-inner -->
-                        </div><!-- /collapse -->
-                    </div><!-- /accordion-group -->
-                    <br>
-
-                    <div class="accordion-group">
-                        <div class="accordion-heading">
-                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
-                                Retina Ready Theme
-                            </a>
-                        </div>
-                        <div id="collapseTwo" class="accordion-body collapse">
-                            <div class="accordion-inner">
-                                <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                            </div><!-- /accordion-inner -->
-                        </div><!-- /collapse -->
-                    </div><!-- /accordion-group -->
-                    <br>
-
-                    <div class="accordion-group">
-                        <div class="accordion-heading">
-                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
-                                Awesome Support
-                            </a>
-                        </div>
-                        <div id="collapseThree" class="accordion-body collapse">
-                            <div class="accordion-inner">
-                                <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                            </div><!-- /accordion-inner -->
-                        </div><!-- /collapse -->
-                    </div><!-- /accordion-group -->
-                    <br>
-
-                    <div class="accordion-group">
-                        <div class="accordion-heading">
-                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFour">
-                                Responsive Design
-                            </a>
-                        </div>
-                        <div id="collapseFour" class="accordion-body collapse">
-                            <div class="accordion-inner">
-                                <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                            </div><!-- /accordion-inner -->
-                        </div><!-- /collapse -->
-                    </div><!-- /accordion-group -->
-                    <br>
-                </div><!-- Accordion -->
-            </div>
-        </div>
-    </div><!--/ .container -->
-</div><!--/ #features -->
-
-
-<section id="showcase" name="showcase"></section>
-<div id="showcase">
-    <div class="container">
-        <div class="row">
-            <h1 class="centered">Some Screenshots</h1>
-            <br>
-            <div class="col-lg-8 col-lg-offset-2">
-                <div id="carousel-example-generic" class="carousel slide">
-                    <!-- Indicators -->
-                    <ol class="carousel-indicators">
-                        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                    </ol>
-
-                    <!-- Wrapper for slides -->
-                    <div class="carousel-inner">
-                        <div class="item active">
-                            <img src="{{ asset('/img/item-01.png') }}" alt="">
-                        </div>
-                        <div class="item">
-                            <img src="{{ asset('/img/item-02.png') }}" alt="">
+    
+    <!-- Start Banner Area 
+    ====================================================== -->
+    <section class="banner-sec blue-banner-sec clearfix" id="welcome">
+    
+        <!-- Start: flexslider -->
+        <div id="banner-slider" class="flexslider clearfix">
+            <ul class="slides">
+            
+                <!-- Start: flexslider-one -->
+                <li class="bg-banner-full slider_one">
+                    <div class="balck-solid blue-solid">
+                    <div class="banner-mid-text banner-sign-up">
+                        <div class="container">
+                         <div class="col-md-8">
+                            
+                                <h1>Easy Referral Program </h1>
+                                <div class="col-md-4 small-boxs">
+                        <div><img src="assets_hp/img/1.png" alt=""></div>
+                        <h4 style="color:#EBA830">Refer</h4>
+                        <p style="color:#9E9E9E">Sed ut perspiciatis unde omnis iste natus 
+sit voluptatem accusantium doloremque laudantium, totam rem aperiam, </p>
+                    </div>
+                    <div class="col-md-4 small-boxs">
+                        <div><img src="assets_hp/img/2.png" alt=""></div>
+                        <h4 style="color:#EBA830">Prime Process</h4>
+                        <p style="color:#9E9E9E">Sed ut perspiciatis unde omnis iste natus 
+sit voluptatem accusantium doloremque laudantium, totam rem aperiam, </p>
+                    </div>
+                    <div class="col-md-4 small-boxs">
+                        <div><img src="assets_hp/img/3.png" alt=""></div>
+                        <h4 style="color:#EBA830">Rewards</h4>
+                        <p style="color:#9E9E9E">Sed ut perspiciatis unde omnis iste natus 
+sit voluptatem accusantium doloremque laudantium, totam rem aperiam, </p>
+                    </div>
+                                                        
+                                <!-- Start: Banner-Buttons Main Section -->
+                                <div class="banner-bttn-sec blue-sec-bttn">
+                                
+                                    <!-- Start: Common Button -->
+                                    <div class="common-buttons">
+                                        <ul><li><a href="#" class="view-more"><i class="fa fa-caret-square-o-left"></i>Learn More</a></li></ul>
+                                    </div>
+                                    <!-- End: Common Button -->
+                            
+                                </div>
+                                <!-- End: Banner-Buttons Main Section -->
+                                
+                           </div>
+                            <!-- Start: col-md-4 Outer Section -->
+                        	<div class="col-md-4">
+                            <div class="row">
+                                <div class="sign-up-sec">
+                                    <span>Sign up to find out more!</span>
+									<form action="{{ url('/register') }}">
+										<input type="name" placeholder="Your Name" name="name" class="text-field" required>
+										<input type="email" placeholder="Your Email" name="email" class="text-field" required>
+										<input type="tel" placeholder="Your Phone" name="phone" class="text-field" required>
+		
+										<!-- Start: Common Button -->
+										<div class="common-buttons">
+											<input type="submit" id="submit" class="btn-submit" value="Register Now">
+										</div> 
+										<!-- End: Common Button -->
+                                    </form>
+                                    <p>By signing up, you agree to our<a href="#"> Terms of Service</a> and<a href="#"> Privacy Policy</a></p>     
+                                </div>
+                            </div>
+                            </div>
+                            <!-- End: col-md-4 Outer Section -->
+                            
+                            <!-- Start: Banner-Right Main Section -->
+                           
+                          <!-- End: Banner-Right Main Section -->
+                          
                         </div>
                     </div>
+                    </div>
+                </li>
+                <!-- End: flexslider-one -->
+                
+            </ul>
+        </div>
+        <!-- End: flexslider -->
+                      
+    </section>
+    <!-- =================================================
+   	End Banner Area-->
+    
+    
+    <!-- Start Color sec section full width
+    ====================================================== -->
+  
+    <!-- =================================================
+    End Color sec section full width-->
+      
+    
+    
+
+    <!-- Start About Area Top Sec 
+    ====================================================== -->
+    <section id="about-area" class="detail-area">
+    	<div class="container">
+               	
+                <!-- Start: detail area heading sec -->
+                <h2>3 Step Referal Program</h2>
+                <hr>
+                <h6><span>earning rewards as an propbuying prime member is a snap.</span>
+Just refer your friend by
+telling them about propbuying.com or telling us about their requirments, then our tem will 
+process their requirments, and you'll earn 
+rewards on every qualifying sale made through your referal. 
+
+ </h6>
+               	<!-- End: detail area heading sec -->
+
+               	<!-- Start: Outer About Main -->
+                <div class="outer-about">
+                
+                    <!-- Start: About Area colm-1 -->
+                    
+                    <!-- End: About Area colm-3 -->
+                    
+                </div>
+               	<!--End: Outer-About Main -->
+                
+        </div>
+    </section>
+    <!-- =================================================
+    End About Area colm sec-->
+ <section>
+
+        <!-- Start: Color sec full width-->
+        <div class="gray-clr-sec">
+        <div class="container clearfix">
+        
+            <!-- Start: Left Sec -->
+            <div class="col-md-6 left-flt">
+                <div class="clr-sec-img">
+                    <img src="assets_hp/img/bttm-rght-img.png" alt="">
                 </div>
             </div>
+            <!-- End: Left Sec -->
+            
+            <!-- Start: Right Col-6 -->
+            <div class="col-md-6">
+            
+                <!-- Start: text-area-full -->
+                <div class="text-content">
+                    <h3>#1 Refer</h3>
+                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium</p>
+
+                    <ul class="list-content">
+                        <li><i class="fa fa-plus-circle"></i>At perspiciatis unde omnis iste natus error sit voluptat</li>
+                        <li><i class="fa fa-plus-circle"></i>Accusantium doloremque laudantium, totam rem aperiam</li>
+                        <li><i class="fa fa-plus-circle"></i>Eaque ipsa quae ab illo inventore veritatis et </li>
+                        <li><i class="fa fa-plus-circle"></i>Quasi architecto beatae vitae dicta sunt explicabo.</li>
+                    </ul>
+    
+                    <!-- Start: Common Button -->
+                    <div class="common-buttons">
+                        <ul><li><a href="#" class="view-more"><i class="fa fa-caret-square-o-left"></i>Learn More</a></li></ul>
+                    </div>
+                    <!-- End: Common Button -->
+                    
+                </div>
+                <!-- End: text-area-full -->
+                
+            </div>  
+            <!-- End:  Right Col-6 -->
+            
+        </div>  
         </div>
-        <br>
-        <br>
-        <br>
-    </div><!-- /container -->
-</div>
+        <!-- End: Color sec full width-->
+        
+        <!-- Start: Color sec full width-->
+        <div class="white-clr-sec">
+        <div class="container clearfix">
+        
+            <!-- Start: Left Sec -->
+            <div class="col-md-6 right-flt">
+                <div class="clr-sec-img">
+                    <img src="assets_hp/img/bttm-lft-img.png" alt="">
+                </div>
+            </div>
+            <!-- End: Left Sec -->
 
+            <!-- Start: Right Col-6 -->
+            <div class="col-md-6">
+                
+                <!-- Start: text-area-full -->
+                <div class="text-content">
+                    <h3>#2 PropBuying Process</h3>
+                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium</p>
 
-<section id="contact" name="contact"></section>
-<div id="footerwrap">
-    <div class="container">
-        <div class="col-lg-5">
-            <h3>Address</h3>
-            <p>
-                Av. Greenville 987,<br/>
-                New York,<br/>
-                90873<br/>
-                United States
-            </p>
+                    <ul class="list-content">
+                        <li><i class="fa fa-plus-circle"></i>At perspiciatis unde omnis iste natus error sit voluptat</li>
+                        <li><i class="fa fa-plus-circle"></i>Accusantium doloremque laudantium, totam rem aperiam</li>
+                        <li><i class="fa fa-plus-circle"></i>Eaque ipsa quae ab illo inventore veritatis et </li>
+                        <li><i class="fa fa-plus-circle"></i>Quasi architecto beatae vitae dicta sunt explicabo.</li>
+                    </ul>
+                
+                    <!-- Start: Common Button -->
+                    <div class="common-buttons">
+                        <ul><li><a href="#" class="view-more"><i class="fa fa-caret-square-o-left"></i>Learn More</a></li></ul>
+                    </div>
+                    <!-- End: Common Button -->
+                        
+                </div>
+                <!-- End: text-area-full -->
+                
+                </div>
+                <!-- End: Right Col-6 -->
+            
+            </div>  
+            <!-- End: text-area-full -->
+            
         </div>
+        <div class="gray-clr-sec">
+        <div class="container clearfix">
+        
+            <!-- Start: Left Sec -->
+            <div class="col-md-6 left-flt">
+                <div class="clr-sec-img">
+                    <img src="assets_hp/img/bttm-rght-img1.png" alt="">
+                </div>
+            </div>
+            <!-- End: Left Sec -->
+            
+            <!-- Start: Right Col-6 -->
+            <div class="col-md-6">
+            
+                <!-- Start: text-area-full -->
+                <div class="text-content">
+                    <h3>#3 Rewards </h3>
+                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium</p>
 
-        <div class="col-lg-7">
-            <h3>Drop Us A Line</h3>
-            <br>
-            <form role="form" action="#" method="post" enctype="plain">
-                <div class="form-group">
-                    <label for="name1">Your Name</label>
-                    <input type="name" name="Name" class="form-control" id="name1" placeholder="Your Name">
+                    <ul class="list-content">
+                        <li><i class="fa fa-plus-circle"></i>At perspiciatis unde omnis iste natus error sit voluptat</li>
+                        <li><i class="fa fa-plus-circle"></i>Accusantium doloremque laudantium, totam rem aperiam</li>
+                        <li><i class="fa fa-plus-circle"></i>Eaque ipsa quae ab illo inventore veritatis et </li>
+                        <li><i class="fa fa-plus-circle"></i>Quasi architecto beatae vitae dicta sunt explicabo.</li>
+                    </ul>
+    
+                    <!-- Start: Common Button -->
+                    <div class="common-buttons">
+                        <ul><li><a href="#" class="view-more"><i class="fa fa-caret-square-o-left"></i>Learn More</a></li></ul>
+                    </div>
+                    <!-- End: Common Button -->
+                    
                 </div>
-                <div class="form-group">
-                    <label for="email1">Email address</label>
-                    <input type="email" name="Mail" class="form-control" id="email1" placeholder="Enter email">
+                <!-- End: text-area-full -->
+                
+            </div>  
+            <!-- End:  Right Col-6 -->
+            
+        </div>  
+        </div>
+        <!-- End: Color sec full width-->
+        
+    </section>
+
+    <!--Start Count-Area  
+    ====================================================== -->
+	<section class="count-area-sec">
+    <div class="overlay-black">
+        <div class="container">
+            
+                <div class="col-md-3 count-boxes">
+					<span class="count-num">3000</span>
+                    <hr>
+                    <h6>Happy Clients</h6>
                 </div>
-                <div class="form-group">
-                    <label>Your Text</label>
-                    <textarea class="form-control" name="Message" rows="3"></textarea>
+                
+               <div class="col-md-3 count-boxes">
+					<span class="count-num">500</span>
+                    <hr>
+                    <h6>Projects</h6>
                 </div>
-                <br>
-                <button type="submit" class="btn btn-large btn-success">SUBMIT</button>
-            </form>
+				
+                
+
+				<div class="col-md-3 count-boxes">
+					<span class="count-num">300</span>
+                    <hr>
+                    <h6>Phone Calls Everyday</h6>
+                </div>
+                <div class="col-md-3 count-boxes">
+                    <span class="count-num">25</span>
+                    <hr>
+                    <h6>Gifts Every Month</h6>
+                </div>
+
         </div>
     </div>
-</div>
-<div id="c">
-    <div class="container">
-        <p>
-            <a href="https://github.com/acacha/adminlte-laravel"></a><b>admin-lte-laravel</b></a>. A Laravel 5 package that switchs default Laravel scaffolding/boilerplate to AdminLTE template.<br/>
-            <strong>Copyright &copy; 2015 <a href="http://acacha.org">Acacha.org</a>.</strong> Created by <a href="http://acacha.org/sergitur">Sergi Tur Badenas</a>. See code at <a href="https://github.com/acacha/adminlte-laravel">Github</a>
-            <br/>
-            AdminLTE created by Abdullah Almsaeed <a href="https://almsaeedstudio.com/">almsaeedstudio.com</a>
-            <br/>
-             Pratt Landing Page Created by <a href="http://www.blacktie.co">BLACKTIE.CO</a>
-        </p>
+    </section>
+    <!-- =================================================
+    End Count-Area  -->
 
+
+    <!-- Start Our Awesome Features 
+    ====================================================== -->
+   
+    <!-- =================================================
+    End Our Awesome Features -->
+
+
+    <!-- Start Color section full width
+    ====================================================== -->
+    
+    <!-- End: Color section full width
+    ====================================================== -->
+
+
+    <!-- Start Color section full width
+    ====================================================== -->
+    <section id="team" class="meet-team-outer">
+    	<div class="container">
+        
+            <!-- Start: Common Button -->
+        	<div class="meet-team-sec">
+            
+           		<!-- Start: meet-team-sec head-->
+        		<h2>Meet The Team</h2>
+                <hr>
+                <p><span>perspiciatis unde omnis iste natus </span>
+ 				sit voluptatem accusantium doloremque laudantium, totam rem aperiam, </p>
+       			<!-- End: meet-team-sec head-->
+
+           		<!-- Start: Col-Outer-Sec Main-->
+                <div class="col-outer-sec">
+                
+                    <!-- Start: col-md-3 -->
+                    <div class="col-md-3">
+                    <div class="team-box">
+                    
+                    
+                        <!-- Start: img section -->
+                    	<div class="img-box">
+                        	<img src="assets_hp/img/team1.jpg" alt="">
+                        </div>
+                        <!-- End: img section -->
+
+                        <!-- Start: team-text-div -->
+                        <div class="team-text">
+                            <h6>Mahesh Yadav</h6>
+                            <span>Sales Head - Residential</span>
+                            
+                            <!-- Start: Social-Icons Sec -->
+                            
+                            <!-- End: Social-Icons Sec -->
+                            
+                        </div>
+                        <!-- End: team-text-div -->
+                        
+                    </div>
+                    </div>
+                    <!-- End: col-md-3 -->
+                    
+                    <!-- Start: col-md-3 -->
+                    <div class="col-md-3">
+                    <div class="team-box">
+                    
+                        <!-- Start: img section -->
+                    	<div class="img-box">
+                        	<img src="assets_hp/img/team2.jpg" alt="">
+                        </div>
+                        <!-- End: img section -->
+                        
+                        <!-- Start: team-text-div -->
+                        <div class="team-text">
+                            <h6>Udayan Mane</h6>
+                            <span>Sales Head - Commercial</span>
+                            
+                            <!-- Start: Social-Icons Sec -->
+                            
+                            <!-- End: Social-Icons Sec -->
+                            
+                        </div>
+                        <!-- End: team-text-div -->
+                        
+                    </div>
+                    </div>
+                    <!-- End: col-md-3 -->
+    
+                    <!-- Start: col-md-3 -->
+                    <div class="col-md-3">
+                    <div class="team-box">
+                    
+                        <!-- Start: img section -->
+                    	<div class="img-box">
+                        	<img src="assets_hp/img/team3.jpg" alt="">
+                        </div>
+                        <!-- End: img section -->
+                        
+                        <!-- Start: team-text-div -->
+                        <div class="team-text">
+                            <h6>Rahul Mane</h6>
+                            <span>Technical Head</span>
+                            
+                            <!-- Start: Social-Icons Sec -->
+                           
+                            <!-- End: Social-Icons Sec -->
+                            
+                        </div>
+                        <!-- End: team-text-div -->
+                        
+                    </div>
+                    </div>
+                    <!-- End: col-md-3 -->
+    
+                    <!-- Start: col-md-3 -->
+                    <div class="col-md-3">
+                    <div class="team-box">
+                    
+                        <!-- Start: img section -->
+                    	<div class="img-box">
+                        	<img src="assets_hp/img/team4.jpg" alt="">
+                        </div>
+                        <!-- End: img section -->
+                        
+                        <!-- Start: team-text-div -->
+                        <div class="team-text">
+                            <h6>Ameay Bhagwat</h6>
+                            <span>Adovate / Land Consultant</span>
+                            
+                            <!-- Start: Social-Icons Sec -->
+                           
+                            <!-- End: Social-Icons Sec -->
+                            
+                        </div>
+                        <!-- End: team-text-div -->
+                        
+                    </div>
+                    </div>
+                    <!-- End: col-md-3 -->
+                    
+               	</div>     
+           		<!-- End: Col-Outer-Sec Main-->
+                
+            </div>
+       		<!-- End: Color sec full width-->
+        
+        </div>
+    </section>
+    <!-- End: Color section full width
+    ====================================================== -->
+    
+    
+    <!-- Start Contact Form 
+    ====================================================== -->
+    <section id="contact" class="contact-form-sec">
+        <div class="container">
+        
+        	<!-- Start: Contact Form Headder-->
+            <div class="contact-form-details">
+            	<h2>Contact Now</h2>
+                <hr>
+            	<p>We’re always happy to reply our customers. </p>
+            </div>
+        	<!-- End: Contact Form Headder-->
+        </div>                   
+            
+        <div class="container">
+            
+                <!-- Start: Quick Contact Area-->
+                <div class="quick-contact-box">
+                    <form method="post" name="contact">
+                        <div class="contact-form-details">
+                            <ul class="form-cntnt" id="contact-form">
+                                <li class="col-md-4 contact-sub-bx"><input id="contact-name" class="text-field" name="Your Name" placeholder="Your Name"></li>
+                                <li class="col-md-4 contact-sub-bx"><input id="contact-email" class="text-field" name="Your Email" placeholder="Your Email"></li>
+                                <li class="col-md-4 contact-sub-bx"><input id="contact-web" class="text-field" name="Your Website" 
+                                	placeholder="Your Website"></li>
+                                <li class="col-md-12 contact-sub-bx"><textarea id="contact-msg" rows="4" cols="120" name="comment" 
+                                	placeholder="Your Message"></textarea></li>
+                                <li class="col-md-12 col-submit"><div class="common-buttons"><a id="contact-submit" href="#" class="view-more">
+                                	<i class="fa fa-caret-square-o-left"></i>Submit Now</a></div>
+                                </li>
+                            </ul>
+                         </div>
+                    </form>
+                </div>
+                <!-- End: Quick Contact Area-->
+                
+                <div id="contact-loading" style="display: none;"> Email Sending... </div>
+                <div id="contact-success" style="display: none;"> Your message sent sucessfully to our team and they will be in touch with you asap. </div>
+                <div id="contact-failed" style="display: none;"> Error...!, message sending faild , try after sometime. </div>
+        </div>
+    </section>
+    <!-- =================================================
+    End Our Contact Form -->
+   
+    
+    <!-- Start Contact Form 
+    ====================================================== -->
+    <section class="cntct-btm-img">
+    <div class="overlay-black">
+    	<div class="container">
+        
+        	<div class="subscribe-content">
+        		<h3>Subscribe today for latest news...!</h3>
+                <span>Be amongst the first to know about news and offers</span>
+                <div class="subscribe-mail">
+                    <input class="text-field" name="Your Email" placeholder="Enter your email">
+                    <div class="common-buttons"><a href="#" class="view-more">Subscribe</a></div>
+                </div>
+        	</div>
+            
+        </div>
     </div>
-</div>
+    </section>
+    <!-- =================================================
+    End Our Contact Form -->
+	
+    
+    <!-- Start Footer-Section
+    ====================================================== -->
+    <section id="footer-contact" class="footer-sec">
+    	<div class="container">
+        
+        	<div class="footer-inner">
+            	<img src="assets_hp/img/logo.png" alt="">
+                
+                <ul class="footer-sublinks">
+                	<li><a href="#">About</a><span></span></li>
+                    <li><a href="#">Terms</a><span></span></li>
+                    <li><a href="#">Privacy</a><span></span></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+                
+                <!-- Start: Social-Icons Sec -->
+                <ul class="social-icons">
+                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                    <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                </ul>
+                <!-- End: Social-Icons Sec -->
+
+            </div>
+        
+        </div>
+    </section>
+    <!-- =================================================
+    End Footer-Section -->
 
 
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="{{ asset('/js/bootstrap.min.js') }}" type="text/javascript"></script>
-<script>
-    $('.carousel').carousel({
-        interval: 3500
-    })
-</script>
+    <!-- Start Footer-Copyright
+    ====================================================== -->
+    <section class="footer-copyright-sec">
+    	<div class="container">
+        
+        	<div class="footer-copyright">
+        		<ul>
+                	<li>&copy; <a href="#">Spandow </a>LLC 2016 . All Rights Reserved <span></span></li>
+                	<li>Handcrafted with love Responsive Experts</li>
+                </ul>
+        	</div>
+            
+        </div>
+    </section>
+    <!-- =================================================
+    End Footer-Copyright -->
+
+
+    <!-- Script Area-->
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script><!-- jquery -->
+    <script type="text/javascript" src="assets_hp/js/bootstrap.js"></script><!-- Bootstrap Js -->
+    <script type="text/javascript" src="assets_hp/js/jquery.flexslider.js"></script><!-- Flexslider Js -->
+    <script type="text/javascript" src="assets_hp/js/link-scroll.js"></script><!-- link-scroll -->
+    
+    <script type="text/javascript" src="assets_hp/js/jquery.magnific-popup.js"></script>
+    <script type="text/javascript" src="assets_hp/js/settings.js"></script><!-- Settings Js -->
+    <script type="text/javascript" src="assets_hp/js/forms.js"></script><!-- Contact Form Js -->
+
 </body>
+
+<!-- Mirrored from responsiveexpert.com/themes/spandow/html/index-4.html by HTTrack Website Copier/3.x [XR&CO'2013], Sun, 24 Apr 2016 14:57:15 GMT -->
 </html>

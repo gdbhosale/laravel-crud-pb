@@ -2074,3 +2074,18 @@ h1 {
 	width:62%;
 }
 }
+
+.btn-submit {
+    margin: 0 auto;
+    padding:17px 21px;
+	background:#EBA830;
+	border-radius:5px;
+    box-shadow: none;
+	font-size:14px;
+	font-weight:500;
+	color:#FFF;
+	text-transform:uppercase;
+	font-family: 'Roboto', sans-serif;
+	border:none;
+	display:inline-block;
+}

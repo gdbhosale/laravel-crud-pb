@@ -8,7 +8,7 @@
 <body class="hold-transition login-page">
     <div class="login-box">
         <div class="login-logo">
-            <a href="{{ url('/home') }}"><b>Admin</b>LTE</a>
+            <a href="{{ url('/') }}"><b>Propbuying</b> Prime</a>
         </div><!-- /.login-logo -->
 
     @if (count($errors) > 0)
@@ -48,7 +48,7 @@
         </div>
     </form>
 
-    @include('auth.partials.social_login')
+    
 
     <a href="{{ url('/password/reset') }}">I forgot my password</a><br>
     <a href="{{ url('/register') }}" class="text-center">Register a new membership</a>
